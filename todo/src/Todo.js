@@ -1,25 +1,25 @@
 import React, { useState, useReducer } from "react";
-import {initialState} from "./reducers/reducer";
+import { reducer, initialState } from "./reducers/reducer";
+import Form from "./components/Form";
+import List from "./components/List";
+
 
 const Todo = () => {
 
-    // const [todo, dispatch] = useReducer(reducer, initialState);
-    const [todos, setTodos] = useState(initialState);
-    
-    const handleChange = () => {
+    const [todo, dispatch] = useReducer(reducer, initialState);
 
-    };
+
+    
     
 
     return (
         <div>
-            <input
-            type="text"
-            name=""
-            value={}
-            onChange={handleChange}
+            <Form  addTodo={item => dispatch({
+                type: "ADD_TODO",
+                payload: item
+            })} 
             />
-            <button>ADD</button>
+            {/* <List  todoItems={todoItems} /> */}
         </div>
     )
 
